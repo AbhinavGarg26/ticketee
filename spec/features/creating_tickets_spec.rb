@@ -4,7 +4,6 @@ RSpec.feature "User can create tickets" do
 	let(:user) { FactoryGirl.create(:user) }
 	before do
 		login_as(user)
-		visit "/"
 		project = FactoryGirl.create(:project, name: "Internet Explorer")
 
 		visit project_path(project)
@@ -17,7 +16,7 @@ RSpec.feature "User can create tickets" do
 
 		click_button "Create Ticket"
 		expect(page).to have_content "Ticket has been created."
-		withing("#{ticket}") do
+		within("#ticket") do
 			expect(page).to have_content "Author: #{user.email}"
 		end
 	end
