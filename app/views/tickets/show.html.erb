@@ -17,4 +17,15 @@
 
 	<%= simple_format(@ticket.description) %>
 
+	<table id="attributes">
+			<tr>
+				<th>Author:</th>
+				<td><%= @ticket.author_id.email %></td>
+			</tr>
+			<tr>
+				<th>Created:</th>
+				<td><%= times_ago_in_words(@ticket.created_at) %> ago</td>
+			</tr>
+	</table>
+
 </div>
