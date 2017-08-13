@@ -1,0 +1,5 @@
+<%= simple_form_for([:admin, project]) do |p| %> 
+	<%= p.input :name %>
+	<%= p.input :description %>
+	<%= p.button :submit, class: "btn-primary" %>
+<% end%>
