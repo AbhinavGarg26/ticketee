@@ -1,10 +1,10 @@
 require "rails_helper"
 
-RSpec.feature "User can edit existing projects" do
+RSpec.feature "Manager User can edit existing projects" do
 	before do
 		project = FactoryGirl.create(:project, name: "Sublime text 3")
 		user = FactoryGirl.create(:user)
-		assign_role!(user, :viewer, project)
+		assign_role!(user, :manager, project)
 
 		login_as(user)
 		visit "/"
