@@ -1,0 +1,19 @@
+The blink tag can blink faster
+
+ActionController::Base. In this case, ActionController is the namespace, and Base is the name of the class inside the namespace.
+
+whitelist authorization, all users are denied access to everything by default, and you must specify what the user is allowed to do
+
+For the seven default CRUD actions for a Rails model, you’ve implemented the fol- lowing authorizations:
+
+Anyone can view the index action, but they will only see projects they are a member of.
+
+Only admins can see the new and create actions.
+
+Only members of a project can see the show action.
+
+Only admins, or managers of a project, can see the edit and update actions.
+
+Only admins can see the destroy action.
+
+ 

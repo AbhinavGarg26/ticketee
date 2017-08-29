@@ -74,7 +74,7 @@ class Admin::UsersController < Admin::ApplicationController
     @projects = Project.order(:name)
   end
 
-  def build_roles_for(user)
+  def build_roles_for(users)
     role_data = params.fetch(:roles, [])
       role_data.each do |project_id, role_name|
         if role_name.present?
