@@ -31,7 +31,7 @@ gem 'carrierwave'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+#gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
@@ -50,8 +50,10 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'factory_girl_rails', '~> 4.5'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 3.5.1' #2.53.4
   gem "rspec-rails"
+  gem 'pry'
+  gem 'pry-nav'
 end
 
 group :development do

@@ -2,7 +2,8 @@ require "rails_helper"
 RSpec.feature "Users can edit existing tickets" do
   let(:project) { FactoryGirl.create(:project) }
   let(:user) { FactoryGirl.create(:user) }
-  let(:ticket)  { FactoryGirl.create(:ticket, project_id: project.id, author: user) }
+    let(:stateopen) { FactoryGirl.create(:state, name: "Open", color: "Brown") }
+    let(:ticket) { FactoryGirl.create(:ticket, project: project, author: user) }
   before do
     login_as(user)
     assign_role!(user, :editor, project)

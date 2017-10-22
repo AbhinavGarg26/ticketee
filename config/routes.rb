@@ -6,19 +6,27 @@ Rails.application.routes.draw do
     resources :projects, only: [:new, :create, :destroy]
     resources :users do
       member do
-          patch :archive
+        patch :archive
       end
     end
-
+    resources :states, only: [:index, :new, :create] do
+      member do
+        get :make_default
+      end
+    end
   end
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "projects#index"
 
-  	resources :projects, only: [:index, :show, :edit, :update] do
-  		resources :tickets
-  	end
+  resources :projects, only: [:index, :show, :edit, :update] do
+    resources :tickets
+  end
 
-    resources :attachments, only: [:show]
+  resources :tickets, only: [] do
+    resources :comments, only: [:create]
+  end
+
+  resources :attachments, only: [:show, :new]
 end

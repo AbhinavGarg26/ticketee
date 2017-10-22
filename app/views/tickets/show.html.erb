@@ -1,4 +1,4 @@
-`<div id="ticket">
+<div id="ticket">
 	<header>
 		<h1> <%= @project.name %> </h1>
 	</header>
@@ -43,6 +43,27 @@
 				<th>Created: </th>
 				<td><%= time_ago_in_words(@ticket.created_at) %> ago</td>
 			</tr>
+			  <% if @ticket.state.present? %>
+			    <tr>
+			      <th>State:</th>
+			      <td><%= render @ticket.state %></td>
+			    </tr>
+			  <% end %>	
 	</table>
 
 </div>
+
+<header>
+  <h3>Comments</h3>
+</header>
+<div id="comments">
+  <% if @ticket.comments.persisted.any? %>
+    <%= render @ticket.comments.persisted %>
+  <% else %>
+    <p>There are no comments for this ticket.</p>
+  <% end %>
+</div>
+
+<% if policy(@comment).create? %>
+  <%= render "comments/form", ticket: @ticket, comment: @comment %>
+<% end %>
