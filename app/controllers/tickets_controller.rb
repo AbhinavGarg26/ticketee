@@ -13,7 +13,6 @@ class TicketsController < ApplicationController
     @ticket = @project.tickets.build(ticket_params)
     @ticket.author_id = current_user.id
     authorize @ticket, :create?
-
     if @ticket.save
       flash[:notice] = "Ticket has been created."
       redirect_to [@project, @ticket]
@@ -55,7 +54,7 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:name, :description, attachments_attributes: [:file, :file_cache])
+    params.require(:ticket).permit(:name, :description, :tag_names, attachments_attributes: [:file, :file_cache])
   end
 
   def set_ticket
